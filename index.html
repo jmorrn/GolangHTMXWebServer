@@ -16,7 +16,9 @@
 
     <ul id="movie-list">
       {{ range .Movies}}
-      <li>{{ .Title }} - {{ .Director }}</li>
+        {{block "movie-list-element" .}}
+        <li>{{ .Title }} - {{ .Director }}</li>
+        {{ end }}
       {{end}}
     </ul>
 
