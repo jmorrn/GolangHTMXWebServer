@@ -31,7 +31,7 @@ func main(){
 		title := request.PostFormValue("title")
 		director := request.PostFormValue("director")
 		htmlStr := fmt.Sprintf("<li>%s - %s</li>", title, director)
-		tmpl. _ := template.New("t").Parse(htmlStr)
+		tmpl, _ := template.New("t").Parse(htmlStr)
 
 		tmpl.Execute(writer, nil)
 	}
