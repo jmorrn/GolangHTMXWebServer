@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Document</title>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.2"
+      integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h"
+      crossorigin="anonymous"
+    ></script>
+    <title>Movies List</title>
   </head>
   <body>
     <h1>Movies List</h1>
@@ -19,11 +23,12 @@
     <div>
       <h1>Add a movie</h1>
 
-      <form>
+      <form hx-post="/add-movie/">
         <label for="movie-title">Title</label>
         <input type="text" name="title" />
-        <label for="movie-description">Description</label>
+        <label for="movie-director">Director</label>
         <input type="text" name="director" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   </body>
