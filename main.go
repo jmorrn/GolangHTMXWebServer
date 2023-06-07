@@ -27,7 +27,17 @@ func main(){
 		tmpl.Execute(writer, movies)
 	}
 
+	handlerTwo := func(writer http.ResponseWriter, request *http.Request){
+		title := request.PostFormValue("title")
+		director := request.PostFormValue("director")
+		htmlStr := fmt.Sprintf("<li>%s - %s</li>", title, director)
+		tmpl. _ := template.New("t").Parse(htmlStr)
+
+		tmpl.Execute(writer, nil)
+	}
+
 	http.HandleFunc("/", handlerOne)
+	http.HandleFunc("/add-movie/", handlerTwo)
 
 	log.Fatal(http.ListenAndServe(":3333", nil))
 }
