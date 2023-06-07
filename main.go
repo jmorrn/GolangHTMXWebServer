@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt" 
+	"time"
 	"html/template"
 	"net/http" 
 	"log"
@@ -28,6 +29,7 @@ func main(){
 	}
 
 	handlerTwo := func(writer http.ResponseWriter, request *http.Request){
+		time.Sleep(1 * time.Second)
 		title := request.PostFormValue("title")
 		director := request.PostFormValue("director")
 		htmlStr := fmt.Sprintf("<li>%s - %s</li>", title, director)
