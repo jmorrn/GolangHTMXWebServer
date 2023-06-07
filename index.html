@@ -14,7 +14,7 @@
   <body>
     <h1>Movies List</h1>
 
-    <ul>
+    <ul id="movie-list">
       {{ range .Movies}}
       <li>{{ .Title }} - {{ .Director }}</li>
       {{end}}
@@ -23,12 +23,25 @@
     <div>
       <h1>Add a movie</h1>
 
-      <form hx-post="/add-movie/">
+      <form
+        hx-post="/add-movie/"
+        hx-target="#movie-list"
+        hx-swap="beforeend"
+        hx-indicator="#spinner"
+      >
         <label for="movie-title">Title</label>
         <input type="text" name="title" />
         <label for="movie-director">Director</label>
         <input type="text" name="director" />
-        <button type="submit">Submit</button>
+        <button type="submit">
+          <img
+            src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952u6oc95js64i8qeeulhyv1wsoltjg59w5fyxvxz8h&ep=v1_gifs_search&rid=200w.gif&ct=g"
+            width="50px"
+            class="htmx-indicator"
+            id="spinner"
+          />
+          Submit
+        </button>
       </form>
     </div>
   </body>
